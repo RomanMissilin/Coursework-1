@@ -12,24 +12,16 @@ public class Main {
         employees[3] = new Employee("Сергей Родин Николаевич ", 500, 2);
         employees[4] = new Employee("Елизавета Пернчук Артёмовна ", 250, 4);
         employees[5] = new Employee("Артём Панин Романович ", 290, 3);
-        employees[6] = new Employee("настасия Антовнов Петрович ", 680, 5);
+        employees[6] = new Employee("Анастасия Антовнов Петрович ", 680, 5);
         employees[7] = new Employee("Аркадий Миронов Абдулаиевич ", 940, 5);
         employees[8] = new Employee("Анатолий Сирновер Сергеевич ", 330, 4);
         employees[9] = new Employee("София Акимовна Адовна ", 430, 1);
 
-        printEmployees();
         System.out.println(minSalary());
         System.out.println(maxSalary());
         System.out.println(printAverageSalary());
-        System.out.println(printSalaryEmployees());
-        System.out.println("Имя сотрудника - " + nameEmployees());
-    }
-
-    public static void printEmployees() {
-
-        for (Employee e : employees) {
-            System.out.println(e);
-        }
+        System.out.println(sumSalaryEmployee());
+        System.out.println(nameEmployees());
     }
 
     public static Employee minSalary() {
@@ -47,15 +39,15 @@ public class Main {
 
     public static Employee maxSalary() {
 
-        int min = employees[0].getSalary();
-        Employee Employees = employees[0];
+        int max = employees[0].getSalary();
+        Employee Employee = employees[0];
         for (Employee i : employees) {
-            if (i.getSalary() > min) {
-                min = i.getSalary();
-                Employees = i;
+            if (i.getSalary() > max) {
+                max = i.getSalary();
+                Employee = i;
             }
         }
-        return Employees;
+        return Employee;
     }
 
     public static Employee printAverageSalary() {
@@ -69,12 +61,12 @@ public class Main {
         return Employees;
     }
 
-    public static int printSalaryEmployees() {
+    public static int sumSalaryEmployee() {
 
-        int sum = 0;
-        for (Employee employee : employees) {
-            sum += employee.getSalary();
-        }
+         int sum = 0;
+         for (Employee employee : employees) {
+             sum += employee.getSalary();
+         }
         return sum;
     }
 
@@ -83,7 +75,8 @@ public class Main {
         StringBuilder name = new StringBuilder(employees[0].getName());
         for (Employee employee : employees) {
             name.append(employee.getName());
+            System.out.println(employee.getName());
         }
-        return name.toString();
+        return null;
     }
 }
